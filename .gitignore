@@ -1,6 +1,7 @@
 #npm modules
 ./techmarket-front-app/node_modules
 ./techmarket-frontapp/node_modules
+./express-webservices/node_modules
 # Compiled class file
 *.class
 
