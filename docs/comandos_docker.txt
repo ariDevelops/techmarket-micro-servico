@@ -1,0 +1,20 @@
+
+startar -> docker start -a -i <nome_container>
+parar --> docker stop <nome_container>
+
+listar todos os containers -> docker ps -a
+
+inicializar um novo container mysql -> sudo docker run --name mysql_container -e MYSQL_ROOT_PASSWORD=root mysql:5.7
+
+
+# Incializa um novo container configurando as portas:
+
+## Aqui no caso passamos a flag -p que signfica porta e o numero da esquerda <- 
+## simboliza a porta da maquina enquanto que o numero da direita -> a porta do 
+## container!
+
+## A flag -d significa para rodar os logs de inicialização no modo silencioso "background"
+
+## A flag -e cria uma variavel de ambiente dentro do container
+
+docker run --name mysql -e MYSQL_ROOT_PASSWORD=root -p 3306:3306 -d mysql:5.7

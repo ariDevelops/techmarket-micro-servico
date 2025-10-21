@@ -1,0 +1,52 @@
+################################# ** Configuracao no docker **##########################################
+👉 Esse é o caso mais comum:
+Você tem um container (por exemplo, um app React, Vue ou Angular rodando em localhost:3000) e quer que o Nginx 
+da sua VM ou host o sirva via porta 80 (HTTP) com um domínio bonito (ex: meusite.dev.com).
+
+
+🔹 Exemplo: container frontend no Docker
+
+Seu container (exemplo):
+docker run -d --name frontend -p 3000:3000 meu_frontend
+
+Agora o app está acessível em:
+👉 http://localhost:3000
+
+
+################################# ** Configuracao no nginx **##########################################
+
+🔹 Passo 1 – Verifique se o nginx está rodando
+
+systemctl status nginx
+
+
+🔹 Passo 2 – Configure o Nginx como proxy reverso
+
+Crie um arquivo de configuração:
+
+sudo nano /etc/nginx/sites-available/frontend.conf
+
+server {
+    listen 80;
+    server_name meusite.dev.com;
+
+    location / {
+        proxy_pass http://127.0.0.1:3000;   # redireciona para o container
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+
+🔹 Passo 3 – Ative o site, teste a configuração 
+
+Ative o site:
+ sudo ln -s /etc/nginx/sites-available/frontend.conf /etc/nginx/sites-enabled/
+ 
+Teste a configuração:
+  sudo nginx -t
+
+Recarregue:
+  sudo systemctl reload nginx
+

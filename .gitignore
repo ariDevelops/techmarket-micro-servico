@@ -1,9 +1,10 @@
 #npm modules
-./express-webservices/node_modules
+./express-webservices/todolist/node_modules
 ./techmarket-front-app/node_modules
 ./techmarket-frontapp/node_modules
-express-webservices/node_modules/
-express-webservices/.env
+./techmarket-frontapp/alternative/node_modules
+express-webservices/todolist/node_modules/
+express-webservices/todolist/.env
 # Compiled class file
 *.class
 
