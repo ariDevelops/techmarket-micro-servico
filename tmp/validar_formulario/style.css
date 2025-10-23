@@ -1,0 +1,35 @@
+body {
+    background: #8bc5bd;
+    padding: 0 24px;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    background-color: aliceblue;
+    width: 15rem;
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+form input {
+    margin-bottom: 12px;
+    height: 32px;
+    font-size: 16px;
+    padding: 0 8px;
+}
+button {
+    height: 32px;
+    font-size: 16px;
+    background-color: #8bc5bd;
+    border: none;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #72a9a1;
+}
